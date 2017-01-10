@@ -1,0 +1,25 @@
+{
+  "name": "cmdice",
+  "version": "1.0.0",
+  "description": "Command line dice roller for RPGs and board games",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FChapeau/cmdice.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/FChapeau/cmdice/issues"
+  },
+  "homepage": "https://github.com/FChapeau/cmdice#readme",
+  "dependencies": {
+    "chalk": "^1.1.3",
+    "commander": "^2.9.0",
+    "random-js": "^1.0.8"
+  }
+}

@@ -3,8 +3,8 @@
  */
 var fs = require("fs");
 var path = require("path");
-module.exports = function commandLoader(program) {
-    var commands = {};
+
+var commands = {};
     var loadPath = path.dirname(__filename);
 
     // Loop though command files
@@ -20,5 +20,4 @@ module.exports = function commandLoader(program) {
         commands[name] = command;
     });
 
-    return commands;
-};
+module.exports = commands;

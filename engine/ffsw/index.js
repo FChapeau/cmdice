@@ -9,6 +9,11 @@ var dicelist = {
     White: null
 }
 
+/**
+ * This throws a set of dice for Fantasy Flight's Star Wars RPG.
+ * Takes in parameter an object that needs to have seven properties
+ * @param {object} params - Parameters of the dice pool
+ */
 function roll (params){
     var dicelist = {
         Purple : function(){console.log("purple")},
@@ -25,4 +30,25 @@ function roll (params){
     }
 }
 
-module.exports = roll;
+/**
+ * This constructs a dice pool object digestable by the roll function.
+ * @constructor
+ * @param {integer} black - Number of black dice to roll
+ */
+function dicePool(black, blue, purple, green, red, yellow, white)
+{
+    return {
+        Black: black,
+        Blue: blue,
+        Purple: purple,
+        Green: green,
+        Red: red,
+        Yellow: yellow,
+        White: white
+    }
+}
+
+module.exports = {
+    Roll: roll,
+    DicePool: dicePool
+};

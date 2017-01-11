@@ -11,8 +11,10 @@ var dicelist = {
 
 /**
  * This throws a set of dice for Fantasy Flight's Star Wars RPG.
+ * 
  * Takes in parameter an object that needs to have seven properties
  * @param {object} params - Parameters of the dice pool
+ * @see {@link dicePool}
  */
 function roll (params){
     var dicelist = {

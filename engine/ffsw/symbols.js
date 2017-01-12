@@ -15,5 +15,6 @@ module.exports = {
     TRIUMPH: triumph,
     DESPAIR: despair,
     WHITE_FORCE: whiteForce,
-    BLACK_FORCE: blackForce
-}
+    BLACK_FORCE: blackForce,
+    FAILURE: failure
+};

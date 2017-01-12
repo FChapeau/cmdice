@@ -1,12 +1,12 @@
 /* eslint-env node */
-const advantage = 0;
-const disadvantage = 1;
-const success = 2;
-const failure = 3;
-const triumph = 4;
-const despair = 5;
-const whiteForce = 6;
-const blackForce = 7;
+const advantage = "Advantage;
+const disadvantage = "Disadvantage;
+const success = "Success";
+const failure = "Failure";
+const triumph = "Triumph;
+const despair = "Despair";
+const whiteForce = "White Force;
+const blackForce = "Black Force;
 
 module.exports = {
     ADVANTAGE: advantage,

@@ -41,7 +41,23 @@ function dicePool(black, blue, purple, green, red, yellow, white) {
         Red: red,
         Yellow: yellow,
         White: white
+    };
+}
+
+function processRoll (roll){
+    var output = {
+        ADVANTAGE: 0,
+        DISADVANTAGE: 0,
+        SUCCESS: 0,
+        TRIUMPH: 0,
+        DESPAIR: 0,
+        WHITE_FORCE: 0,
+        BLACK_FORCE: 0,
+        FAILURE: 0
     }
+    
+    
+    
 }
 
 module.exports = {

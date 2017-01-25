@@ -8,17 +8,26 @@ var dicelist = require("./dice.js");
  * @see {@link dicePool}
  */
 function roll (params){
-    var output = [];
+    var rollResult = {
+        Advantage: 0,
+        Disadvantage: 0,
+        Success: 0,
+        Triumph: 0,
+        Despair: 0,
+        WhiteForce: 0,
+        BlackForce: 0,
+        Failure: 0
+    };
 
     for (var key in params){
         if (params.hasOwnProperty(key)){
             for (var i = 0; i < params[key]; i++){
-                output = output.concat(dicelist[key]());
+                dicelist[key]().forEach(function(item){rollResult[item]++;});
             }
         }
     }
 
-    return output;
+    return processRoll(rollResult);
 }
 
 /**
@@ -46,18 +55,37 @@ function dicePool(black, blue, purple, green, red, yellow, white) {
 
 function processRoll (roll){
     var output = {
-        ADVANTAGE: 0,
-        DISADVANTAGE: 0,
-        SUCCESS: 0,
-        TRIUMPH: 0,
-        DESPAIR: 0,
-        WHITE_FORCE: 0,
-        BLACK_FORCE: 0,
-        FAILURE: 0
+        Advantage: 0,
+        Disadvantage: 0,
+        Success: 0,
+        Triumph: 0,
+        Despair: 0,
+        WhiteForce: 0,
+        BlackForce: 0,
+        Failure: 0
+    };
+    
+    output.Advantage = roll.Advantage - roll.Disadvantage;
+    output.Disadvantage = -output.Advantage;
+    
+    output.Triumph = roll.Triumph - roll.Despair;
+    output.Despair = -output.Triumph;
+    
+    output.Success = (roll.Success + Math.floor(0, output.Triumph)) - (roll.Failure + Math.floor(0, output.Despair));
+    output.Failure = -output.Failure;
+    
+    output.WhiteForce = roll.WhiteForce - roll.BlackForce;
+    output.BlackForce = -output.WhiteForce;
+    
+    for (var property in output){
+        if (output.hasOwnProperty(property)){
+            if (output[property] <=0){
+                delete output[property];
+            }
+        }
     }
     
-    
-    
+    return output;
 }
 
 module.exports = {

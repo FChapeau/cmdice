@@ -12,8 +12,10 @@ command.command("ffsw")
     .option("-y --yellow <yellow>", "Number of yellow dice")
     .option("-B --blue <blue>", "Number of blue dice")
     .action(function(command){
-
-        console.log(ffsw.Roll(ffsw.DicePool(command.black, command.blue, command.purple, command.green, command.red, command.yellow, command.white)));
+        
+        var rollResult = ffsw.Roll(ffsw.DicePool(command.black, command.blue, command.purple, command.green, command.red, command.yellow, command.white));
+        
+        console.log(rollResult);
     });
 
 exports.Command = command;

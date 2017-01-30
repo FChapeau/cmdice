@@ -160,7 +160,7 @@ function yellow(){
 
     switch(diceResult){
         case 0:
-            output.push(Symbols.DESPAIR);
+            output.push(Symbols.TRIUMPH);
             break;
         case 1:
         case 2:

@@ -53,6 +53,11 @@ function dicePool(black, blue, purple, green, red, yellow, white) {
     };
 }
 
+/**
+ * This processes the dice pool result by eliminating opposing symbols.
+ * @param roll Raw dice roll
+ * @returns {{Advantage: number, Disadvantage: number, Success: number, Triumph: number, Despair: number, WhiteForce: number, BlackForce: number, Failure: number}} Sorted dice pool
+ */
 function processRoll (roll){
     var output = {
         Advantage: 0,
@@ -68,8 +73,8 @@ function processRoll (roll){
     output.Advantage = roll.Advantage - roll.Disadvantage;
     output.Disadvantage = -output.Advantage;
     
-    output.Triumph = roll.Triumph - roll.Despair;
-    output.Despair = -output.Triumph;
+    output.Triumph = roll.Triumph;
+    output.Despair = roll.Despair;
     
     output.Success = (roll.Success + Math.floor(0, output.Triumph)) - (roll.Failure + Math.floor(0, output.Despair));
     output.Failure = -output.Failure;
